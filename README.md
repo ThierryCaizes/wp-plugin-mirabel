@@ -13,7 +13,7 @@ Cela vous permettra de créer une rubrique spécifique <i>(Par exemple : Catalog
 Lors de l'appelle de l'API, les posts se créeront automatiquement.
 <br>
 <h4>2-Metadonnées</h4>
-Vous devrez insérer des champs personnalisées dans chacun des posts.<br>
+Pour saisir les données de vos revues, vous devez insérer des champs personnalisés pour chacun des posts.<br>
 Ces champs vous permettrons d'importer les types de données souhaités.<br>
 Ce fichier ce trouve dans import.php <br>
 <br>
@@ -27,7 +27,7 @@ Dans notre exemple l'import des données se fait en trois grandes phases :
     <li>Périodicité</li>
     <li>Langues <i>(voir "Cas spécifiques")</i></li> 
     <li>URLS</li>
-    <li>Revue Obsolete <i>(voir "Cas spécifiques")</i></li>
+    <li>Revues Obsoletes <i>(voir "Cas spécifiques")</i></li>
   </ul>
   <li>L'import des thématiques</li>
   <li>L'import des ressources</li>
