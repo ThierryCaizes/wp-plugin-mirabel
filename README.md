@@ -1,4 +1,4 @@
-# plugin-mirabel
+# Plugin WordPress Mirabel
 <h2>Notice de développement d'une extension WordPress pour l'API Mirabel</h2>
 
 Cette notice n'est qu'une base de récupération de l'API de Mirabel pour pouvoir développer une extension WordPress sur-mesure et de l'adapter en fonction de vos besoins.<br><br>
