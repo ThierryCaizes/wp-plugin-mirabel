@@ -10,11 +10,6 @@ function mirabel_import_api(){
         return;
     }
 
-    // Evite les révisions
-    if ( wp_is_post_revision ( get_the_ID() ) ){
-        return;
-    }
-
     $request_meta = wp_safe_remote_get ('https://reseau-mirabel.info/api/titres?grappeid=2');
 
     if ( is_wp_error ($request_meta) ){
@@ -23,6 +18,27 @@ function mirabel_import_api(){
 
     $body_mirabel = wp_remote_retrieve_body ($request_meta);
     $data_mirabel = json_decode ($body_mirabel, true);
+
+    //Crée un tableau de liste de tout les revues de la grappe
+    $posts_api = array_map (function($meta_api){
+        return $meta_api['revueid'];
+    }, $data_mirabel);
+
+    // Vérifie tout les posts 
+    $posts_catalog = get_posts (array(
+        'post_type' => 'catalog',
+        'posts_per_page' => -1,
+        'meta_key' => 'id_journal',
+    ));
+
+    // Supprime les posts qui ne sont plus dans l'API
+    foreach ($posts_catalog as $post){
+        $id_journal = get_field ('id_journal', $post->ID);
+        if ($id_journal && !in_array($id_journal, $posts_api) ) {
+            // Suppression définitive
+            wp_delete_post ($post->ID, true);
+        }
+    }
 
     foreach ($data_mirabel as $meta){
         // Initialisation
