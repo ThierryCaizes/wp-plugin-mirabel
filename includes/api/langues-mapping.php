@@ -103,4 +103,5 @@ $langues_iso = array(
     'mao' => 'Maori',
     'smo' => 'Samoan',
     'ton' => 'Tongien'
+    'sla' => 'Slave'
 );
